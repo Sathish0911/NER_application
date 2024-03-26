@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <title>NER Application</title>
+    <link type="image/png" sizes="32x32" rel="icon" href="./static/images/icons8-text-box-32.png">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Named Entity Recognition Application</h1>
+
+        <div class="instructions">
+            <h2>How to Use</h2>
+            <ul>
+                <li>Welcome to the Named Entity Recognition <strong>(NER)</strong> Application!</li>
+                <li>&nbsp;</li>
+                <li>You can <strong>input text directly</strong> into the text area
+                </li>
+                <li> <strong> OR </strong> </li>
+                <li>upload a text file (.txt) using the <strong>"Browse"</strong> button.</li>
+                <span class="arrow">⇓</span>
+                <li>&nbsp;</li>
+                <li>Click the <strong>"Submit"</strong> button to
+                    perform NER tagging once you've entered your text or uploaded a file.
+                </li>
+                <span class="arrow">⇓</span>
+                <li>&nbsp;</li>
+                <li>The identified entities will be highlighted in the output below, and you can <strong>download the
+                        entity
+                        table as a CSV file</strong>.
+                </li>
+            </ul>
+        </div>
+
+        <form id="nerForm">
+            <div class="input-section">
+                <h2>Input Text:</h2>
+                <div class="browse-option">
+                    <!-- <label for="file_input">Browse text file</label> -->
+                    <input type="file" id="file_input" accept=".txt">
+                    <!-- <span style="font-size: 14pt;font-weight: bold; color: #5F1FBE;">&nbsp;&nbsp; OR </span> -->
+                </div>
+                <textarea name="input_text" id="input_text" placeholder="Or enter text here..."></textarea>
+            </div>
+            <div class="input-section">
+                <h2>Output NER Tagging:</h2>
+                <div id="output" class="output"></div>
+            </div>
+            <button type="button" id="submitBtn">Submit</button>
+            <button type="button" id="resetBtn">Reset</button>
+            <a href="#" id="downloadLink" download="entity_table.csv"><button type="button" id="downloadBtn"
+                    disabled>Download Entity Table</button></a>
+        </form>
+    </div>
+
+</body>
+
+</html>
